@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Scan, List, Settings, Zap, BarChart2 } from 'lucide-react'
+import { ScanLine, List, Settings, Zap, BarChart2 } from 'lucide-react'
 import ScanTab from './components/ScanTab.jsx'
 import LeadsTab from './components/LeadsTab.jsx'
 import SettingsTab from './components/SettingsTab.jsx'
@@ -7,7 +7,7 @@ import OutreachTab from './components/OutreachTab.jsx'
 import { getLeads } from './utils/leadStorage.js'
 
 const TABS = [
-  { id: 'scan', label: 'Scan', icon: Scan },
+  { id: 'scan', label: 'Scan', icon: ScanLine },
   { id: 'leads', label: 'Leads', icon: List },
   { id: 'outreach', label: 'Outreach', icon: Zap },
   { id: 'settings', label: 'Settings', icon: Settings },
@@ -87,10 +87,11 @@ export default function App() {
               className="btn-ghost"
               style={{
                 display: 'flex', alignItems: 'center', gap: 6,
-                padding: '6px 12px', borderRadius: 6,
+                padding: '6px 12px',
                 color: active ? 'var(--text)' : 'var(--text3)',
                 background: active ? 'var(--surface2)' : 'transparent',
                 borderBottom: active ? '2px solid var(--accent)' : '2px solid transparent',
+                borderRadius: '6px 6px 0 0',
                 fontSize: 13, fontWeight: active ? 600 : 400
               }}
             >
