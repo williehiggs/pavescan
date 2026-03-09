@@ -1,0 +1,155 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #0a0c10;
+  --surface: #111318;
+  --surface2: #181c24;
+  --border: #1e2330;
+  --border2: #252c3a;
+  --text: #e8ecf4;
+  --text2: #8892a4;
+  --text3: #4a5568;
+  --accent: #3b82f6;
+  --accent-dim: #1d3a6e;
+  --green: #10b981;
+  --green-dim: #064e35;
+  --amber: #f59e0b;
+  --amber-dim: #6b3f04;
+  --red: #ef4444;
+  --red-dim: #5c1a1a;
+  --purple: #8b5cf6;
+  --purple-dim: #3b1f6e;
+  --font-display: 'Syne', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'DM Mono', monospace;
+  --radius: 8px;
+  --radius-lg: 12px;
+}
+
+html, body, #root {
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--surface); }
+::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 3px; }
+
+input, textarea, select {
+  background: var(--surface2);
+  border: 1px solid var(--border2);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 13px;
+  border-radius: var(--radius);
+  padding: 8px 12px;
+  outline: none;
+  transition: border-color 0.15s;
+  width: 100%;
+}
+input:focus, textarea:focus, select:focus { border-color: var(--accent); }
+input::placeholder, textarea::placeholder { color: var(--text3); }
+
+button {
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  border: none;
+  border-radius: var(--radius);
+  transition: all 0.15s;
+}
+button:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.btn-primary {
+  background: var(--accent);
+  color: white;
+  padding: 9px 18px;
+}
+.btn-primary:hover:not(:disabled) { background: #2563eb; }
+
+.btn-secondary {
+  background: var(--surface2);
+  color: var(--text);
+  border: 1px solid var(--border2);
+  padding: 9px 18px;
+}
+.btn-secondary:hover:not(:disabled) { background: var(--border); border-color: var(--accent); }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text2);
+  padding: 6px 12px;
+}
+.btn-ghost:hover:not(:disabled) { color: var(--text); background: var(--surface2); }
+
+.btn-danger {
+  background: var(--red-dim);
+  color: var(--red);
+  border: 1px solid var(--red);
+  padding: 7px 14px;
+}
+.btn-danger:hover:not(:disabled) { background: var(--red); color: white; }
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  font-family: var(--font-mono);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.badge-a { background: var(--red-dim); color: var(--red); border: 1px solid var(--red); }
+.badge-b { background: var(--amber-dim); color: var(--amber); border: 1px solid var(--amber); }
+.badge-c { background: var(--surface2); color: var(--text2); border: 1px solid var(--border2); }
+.badge-new { background: var(--accent-dim); color: var(--accent); border: 1px solid var(--accent); }
+.badge-enriched { background: var(--green-dim); color: var(--green); border: 1px solid var(--green); }
+.badge-sent { background: var(--purple-dim); color: var(--purple); border: 1px solid var(--purple); }
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+}
+
+.label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text3);
+  margin-bottom: 6px;
+}
+
+.score-ring {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 14px;
+  border: 2px solid;
+}
+.score-high { border-color: var(--red); color: var(--red); background: var(--red-dim); }
+.score-mid { border-color: var(--amber); color: var(--amber); background: var(--amber-dim); }
+.score-low { border-color: var(--text3); color: var(--text2); background: var(--surface2); }
+
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+.animate-spin { animation: spin 1s linear infinite; }
+.animate-pulse { animation: pulse 2s ease-in-out infinite; }
+.animate-fade { animation: fadeIn 0.3s ease; }
